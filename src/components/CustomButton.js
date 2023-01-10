@@ -39,13 +39,13 @@ const CustomButton = ({onPress, text}) => {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: '#171717',
-      width: 200, // Make the button 200 pixels wide
+      width: 250,
       height: 50,
-      padding: 11,
+      padding: 9,
       marginVertical: 5,
-      marginTop: 60,
+      marginTop: 40,
       alignItems: 'center',
-      borderRadius: 10,
+      borderRadius: 7, // decide on whether it should be 9 or 23
     },
     text: {
       color: 'white',

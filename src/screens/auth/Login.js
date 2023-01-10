@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 
-const Login = props => {
+const Login = (props) => {
   // const {navigation} = props;
   const navigation = useNavigation();
   const [username, setUsername] = useState('');
@@ -25,23 +25,38 @@ const Login = props => {
     navigation.navigate(ROUTES.HOME);
   }
 
+  const onSignUpPresses = () => {
+    navigation.navigate(ROUTES.REGISTER);
+  }
+
+
   return (
       <View style={styles.container}>
         <Image 
         style={styles.logo}
         source={logo} alt="Logo"
         />
-        <CustomInput 
+        <Text style={styles.title}>Welcome Back</Text>
+        <Text style={styles.caption}>Log in to your existing account</Text>
+        <CustomInput
         placeholder="Username" 
         value={username} 
         setValue={setUsername} 
-        secureTextEntry={false} />
+        secureTextEntry={false}
+        icon='user'
+         />
         <CustomInput 
         placeholder="Password" 
         value={password}
         setValue={setPassword}  
-        secureTextEntry={true}  />
-        <CustomButton text="Login" onPress={onSigninPressed} />
+        secureTextEntry={true}  
+        icon='lock'
+        />
+        <CustomButton text="Log in" onPress={onSigninPressed} />
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Dont have an Account?</Text>
+          <Text style={styles.signUp} onPress={onSignUpPresses}>Sign Up</Text>
+        </View>
       </View>
   );
 };
@@ -58,9 +73,31 @@ const styles = StyleSheet.create({
      padding: 20,
   },
   logo: {
-    height: 220,
-    width: 220,
-    marginTop: 100,
+    height: 270,
+    width: 250,
+    marginTop: 130,
+  },
+  title: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    marginTop: -30,
+    marginBottom: 50,
+  },
+  caption: {
+    marginTop: -40,
+    marginBottom: 20,
+  },
+  footer: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  footerText: {
+    fontWeight: 'bold',
+  },
+  signUp: {
+    marginLeft: 5,
+    borderBottomColor: '#d3d3d3',
+    borderBottomWidth: 2,
   },
 })
 

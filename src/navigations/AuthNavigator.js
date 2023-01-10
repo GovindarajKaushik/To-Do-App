@@ -15,6 +15,7 @@ function AuthNavigator() {
         component={Login}
         options={{headerShown: false}}
       />
+       <Stack.Screen name={ROUTES.REGISTER} component={Register} options={{headerShown: false}}/>
       <Stack.Screen 
        name={ROUTES.HOME}
        component={BottomTabNavigator}

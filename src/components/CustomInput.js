@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-
-const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
+const CustomInput = ({value, setValue, placeholder, secureTextEntry, icon}) => {
   return (
     <View style={styles.container}>
+      <AntDesign style={styles.icon} name={icon} size={23} color={'grey'} />
       <TextInput 
       value={value}
       onChangeText={setValue}
@@ -22,16 +23,22 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
         padding: 5,
-        marginTop: 20,
+        marginTop: 10,
+        flexDirection: 'row',
 
-        borderColor: '#d3d3d3',
-        borderWidth: 1,
-        borderRadius: 10,
+        borderColor: 'grey',
+        borderWidth: 2,
+        borderRadius: 3,
 
         paddingHorizontal: 10,
         marginVertical: 10, 
     },
-    input: {},
+    icon: {
+      marginRight: 5,
+    },
+    input: {
+      width: '100%',
+    },
 })
 
 

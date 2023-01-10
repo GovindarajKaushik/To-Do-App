@@ -6,9 +6,19 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
+
 function BottomTabNavigator() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator 
+    screenOptions={({route}) => ({
+        headerShown: false,
+        tabBarIcon: ({color, size}) => {
+            
+        },
+    })}
+    
+    
+    >
       <Tab.Screen name={ROUTES.HOME} component={Home}  options={{headerShown: false}} />
       <Tab.Screen name={ROUTES.ACHIEVEMENTS} component={Achievements}  options={{headerShown: false}} />
       <Tab.Screen name={ROUTES.CALENDER} component={Calender}  options={{headerShown: false}} />
