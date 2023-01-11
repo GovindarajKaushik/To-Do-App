@@ -27,6 +27,10 @@ const SignUp = (props) => {
     navigation.navigate(ROUTES.HOME);
   };
 
+  const onLogInPressed = () => {
+    navigation.navigate(ROUTES.LOGIN);
+  }
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} alt="Logo" />
@@ -56,7 +60,7 @@ const SignUp = (props) => {
       <CustomButton text="Sign up" onPress={onSignupPressed} />
       <View style={styles.footer}>
         <Text style={styles.footerText}>Already have an account?</Text>
-        <Text style={styles.signUp}>Log in</Text>
+        <Text style={styles.signUp} onPress={onLogInPressed}>Log in</Text>
       </View>
     </View>
   );
