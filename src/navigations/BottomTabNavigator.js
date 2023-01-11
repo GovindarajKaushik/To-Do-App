@@ -11,16 +11,9 @@ function BottomTabNavigator() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: '#171717',
+        activeTintColor: 'white',
         inactiveTintColor: 'grey',
-        style: styles.tabBarStyle,
         showLabel: false,
-        tabBarStyle: [
-            {
-                display: "flex"
-            },
-            null
-        ]
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -39,6 +32,7 @@ function BottomTabNavigator() {
           // You can return any component that you like here!
           return <Icon name={iconName} size={size} color={color} />;
         },
+        tabBarStyle: styles.tabBarStyle
       })}
       animationEnabled = {true}
       swipeEnabled = {true}
@@ -61,5 +55,6 @@ const styles = StyleSheet.create({
       bottom: 15,
       right: 10,
       left: 10,
+      borderRadius: 50,
     },
   });
