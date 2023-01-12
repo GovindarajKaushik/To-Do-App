@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const CustomInput = ({value, setValue, placeholder, secureTextEntry, icon}) => {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
         paddingLeft: 10,
-        padding: 5,
+        padding: 10,
         marginTop: 10,
         flexDirection: 'row',
 

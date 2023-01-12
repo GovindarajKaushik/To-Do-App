@@ -6,6 +6,7 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  Dimensions,
   Image,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -14,6 +15,9 @@ import logo from '../../assets/icons/LOGO.png';
 import {useNavigation} from '@react-navigation/native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+
+
+const {width, height} = Dimensions.get('screen');
 
 const SignUp = (props) => {
   const navigation = useNavigation();
@@ -74,13 +78,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
-    paddingBottom: 280,
-    padding: 20,
+    paddingBottom: height * 0.4,
+    padding: width * 0.05,
   },
   logo: {
     height: 270,
     width: 250,
-    marginTop: 130,
+    marginTop: 200,
   },
   title: {
     fontSize: 35,

@@ -14,6 +14,7 @@ import logo from '../../assets/icons/LOGO.png';
 import {useNavigation} from '@react-navigation/native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Login = (props) => {
   // const {navigation} = props;
@@ -65,7 +66,6 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   logo: {
     height: 270,
     width: 250,
-    marginTop: 130,
+    marginTop: 20,
   },
   title: {
     fontSize: 35,
