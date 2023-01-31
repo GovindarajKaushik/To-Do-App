@@ -16,5 +16,5 @@ export default {
   SETTINGS_NAVIGATOR: 'Settings Navigator',
 
   SETTINGS_DETAIL: 'Settings Detail',
-  PROFILE: 'My Profile',
+  PROFILE: 'My Profiles',
 };
