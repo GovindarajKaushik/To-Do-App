@@ -4,14 +4,12 @@ export default {
   FORGOT_PASSWORD: 'Forgot Password',
 
   HOME: 'Home',
-  // HOME_TAB: 'Home Tab',
-  // HOME_DRAWER: 'Home Drawer',
+  HOMETAB: 'HomeTab',
+
 
   ACHIEVEMENTS: 'Achievements',
-  // WALLET_DRAWER: 'Wallet Drawer',
 
   CALENDER: 'Calender',
-  // NOTIFICATIONS_DRAWER: 'Notifications Drawer',
 
   SETTINGS: 'Settings',
   ACCOUNT_SETTINGS: 'Account Settings',

@@ -28,17 +28,21 @@ export default SearchBar
 
 const styles = StyleSheet.create({
     SearchBar: {
-        padding: 10,
+        padding: 15,
         backgroundColor: '#36454f',
         borderRadius: 40,
         color: '#667085',
+
+    
     },
     container: {
     backgroundColor: '#36454f',
     width: '90%',
-    height: '20%',
+    height: '17%',
     borderRadius: 10,
-    marginBottom: 120,
+    marginBottom: 80,
+    marginTop: -20,
+    
     },
  iconContainer: {
       flexDirection: 'row',

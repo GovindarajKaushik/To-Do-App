@@ -4,15 +4,15 @@ import { COLORS } from '../constants';
 
 const BlackTop = (props) => {
     return (
-        <View style={[styles.container]}>{props.children}</View>
+        <View style={[styles.container,{height: props.height}]}>{props.children}</View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: COLORS.black,
+        // position: 'relative',
+        backgroundColor: 'black',
         width: '100%',
-        height: '55%',
         padding: 30,
         alignItems: 'center',
         justifyContent: 'center',
