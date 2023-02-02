@@ -4,12 +4,18 @@ import { ROUTES } from '../constants';
 import { useNavigation } from '@react-navigation/native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useState } from 'react';
+import { useGlobalContext } from "../context";
 
 
 const Tasks = (props) => {
   const [selected, setSelected] = React.useState(false);
   const [iconColor, setIconColor] = React.useState('grey');
   const navigation = useNavigation();
+  const { tasks, setTasks } = useGlobalContext();
+
+  const deleteTask = (deleteIndex) => {
+    setTasks(tasks.filter((value, index) => index != deleteIndex))
+  }
 
   const onTaskPressed = () => {
     navigation.navigate(ROUTES.TODOLIST, {title: props.title, color: props.color}); // Pass the title of the task to the ToDoList screen});
@@ -21,10 +27,13 @@ const Tasks = (props) => {
   
   const onTrashPressIn = () => {
     setIconColor('#EB5406');
+    console.log('in');
   }
   
   const onTrashPressOut = () => {
     setIconColor('grey');
+    console.log('out');
+    deleteTask(props.index)
   }
   
   return (

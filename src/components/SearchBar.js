@@ -28,7 +28,7 @@ export default SearchBar
 
 const styles = StyleSheet.create({
     SearchBar: {
-        padding: 12,
+        padding: 9,
         backgroundColor: '#36454f',
         borderRadius: 40,
         color: '#667085',

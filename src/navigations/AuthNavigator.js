@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Login, Register, ToDoList} from '../screens';
+import {CreateProject, CreateProjects, Login, ProjectList, Register, ToDoList} from '../screens';
 import {ROUTES} from '../constants';
 import BottomTabNavigator from './BottomTabNavigator';
 import CreateTasks from '../screens/home/CreateTasks';
@@ -44,6 +44,16 @@ function AuthNavigator() {
        name={ROUTES.CREATETASKS}
        component={CreateTasks}
        options={{headerShown: false}}
+        />
+        <Stack.Screen 
+       name={ROUTES.PROJECTLIST}
+       component={ProjectList}
+       options={{headerShown: true}}
+        />
+         <Stack.Screen 
+       name={ROUTES.CREATEPROJECT}
+       component={CreateProject}
+       options={{headerShown: true}}
         />
     </Stack.Navigator>
   );

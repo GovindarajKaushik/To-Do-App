@@ -27,16 +27,21 @@ const userData = {
 
 const Home = (props) => {
   const [term, setTerm] = useState("");
-  const { tasks } = useGlobalContext();
+  const { tasks, projects } = useGlobalContext();
   const navigation = useNavigation();
 
   const onTaskPressed = () => {
     navigation.navigate(ROUTES.CREATETASKS); // Pass the title of the task to the ToDoList screen});
   };
-  const addItemsToLists = (item) => {
-    lists.push(item);
+
+  const onProjectPressed = () => {
+    navigation.navigate(ROUTES.PROJECTLIST); // Pass the title of the task to the ToDoList screen});
   };
-  console.log(tasks);
+
+  const createProjectPressed = () => {
+    navigation.navigate(ROUTES.CREATEPROJECT);
+  };
+
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -55,33 +60,29 @@ const Home = (props) => {
 
       <View style={styles.headerContainer}>
         <Text style={styles.projectsHeader}>Projects</Text>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.seeAll}>See all</Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity>
+          <AntDesign
+            onPress={createProjectPressed}
+            style={styles.createIcon}
+            name="pluscircle"
+            size={39}
+            color="white"
+          />
         </TouchableOpacity>
       </View>
 
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <Projects
-          containerColor={"#3BECF7"}
-          projectName="MAD assignment"
-          projectDescription="Make a site map that has 6 UI screens"
-          dueOn="Due on"
-          date="16 Jan, 2023 at 5:00 pm"
+        <FlatList
+        horizontal={true}
+        data={projects}
+        renderItem={({item, index }) => {
+          return <Projects containerColor={item.containerColor} projectName={item.projectName} projectDescription={item.projectDescription} date={item.date} index={index} />;
+        }}
         />
-        <Projects
-          containerColor={"#AF68F0"}
-          projectName="DEUI assignment"
-          projectDescription="Make a proposal and prepare slides for presentation"
-          dueOn="Due on"
-          date="19 Jan, 2023 at 6:00 pm"
-        />
-        <Projects
-          containerColor={"#FF9001"}
-          projectName="JAVA assignment"
-          projectDescription="Prepare for interview and check the Java code for error"
-          dueOn="Due on"
-          date="16 Jan, 2023 3:00 pm"
-        />
+      {/* {containerColor: "#3BECF7", projectName: "MAD assignment", projectDescription: "Make a site map that has 6 UI screens", date: "16 Jan, 2023 at 5:00 pm"}, */}
       </ScrollView>
 
       <View style={styles.tasksHeaderContainer}>
@@ -102,7 +103,7 @@ const Home = (props) => {
         style={styles.Tasks}
         data={tasks}
         renderItem={({ item: { title, time, color }, index }) => {
-          return <Tasks title={title} time={time} color={color} />;
+          return <Tasks title={title} time={time} color={color} index={index} />;
         }}
       />
     </ScrollView>
@@ -148,6 +149,9 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     fontSize: 22,
     width: 90,
+    color: 'white',
+    marginLeft: 20,
+    paddingBottom: 3,
   },
   seeAll: {
     marginRight: 10,
@@ -157,13 +161,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginLeft: 25,
+    marginLeft: 15,
     marginTop: 20,
+    backgroundColor: "black",
+    width: 150,
+    height: 40,
+    borderRadius: 30,
   },
   tasksHeaderContainer: {
     position: "absolute",
     marginLeft: 15,
-    marginTop: 510,
+    marginTop: 540,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -181,9 +189,6 @@ const styles = StyleSheet.create({
   },
   createIcon: {
     // padding: 10,
-  },
-  Tasks: {
-    marginTop: -20,
   },
   container: {
     flex: 1,

@@ -8,6 +8,8 @@ export default {
 
   TODOLIST: 'ToDoList',
   CREATETASKS: 'CreateTasks',
+  PROJECTLIST: 'ProjectList',
+  CREATEPROJECT: 'CreateProject',
   ACHIEVEMENTS: 'Achievements',
 
   CALENDER: 'Calender',
