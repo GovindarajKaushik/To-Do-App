@@ -35,6 +35,10 @@ const CreateTasks = () => {
                 style={[styles.input, {outline: 'none'}]}
             />
 
+            <View style={styles.submitBtn}>
+                <Text>Submit</Text>
+            </View>
+
         </View>
     </View>
   )
@@ -80,6 +84,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
 
-    }
+    },
 })
 export default CreateTasks
