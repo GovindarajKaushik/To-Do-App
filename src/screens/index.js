@@ -3,7 +3,7 @@ export {default as Home} from './home/Home';
 export {default as Calender} from './home/Calender';
 export {default as Achievements} from './home/Achievements';
 export {default as Settings} from './home/Settings';
-
+export {default as ToDoList} from './home/ToDoList';
 
 
 

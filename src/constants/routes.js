@@ -6,7 +6,8 @@ export default {
   HOME: 'Home',
   HOMETAB: 'HomeTab',
 
-
+  TODOLIST: 'ToDoList',
+  CREATETASKS: 'CreateTasks',
   ACHIEVEMENTS: 'Achievements',
 
   CALENDER: 'Calender',

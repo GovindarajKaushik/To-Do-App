@@ -28,7 +28,7 @@ export default SearchBar
 
 const styles = StyleSheet.create({
     SearchBar: {
-        padding: 15,
+        padding: 12,
         backgroundColor: '#36454f',
         borderRadius: 40,
         color: '#667085',
@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
     container: {
     backgroundColor: '#36454f',
     width: '90%',
-    height: '17%',
+    height: '16%',
     borderRadius: 10,
-    marginBottom: 80,
+    marginBottom: 100,
     marginTop: -20,
     
     },

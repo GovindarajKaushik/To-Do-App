@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
         height: 170,
         width: 220,
         borderRadius: 20,
-        marginLeft: 15,
+        marginLeft: 10,
+        marginRight: 10,
         marginTop: 20,
         position: 'relative',
         
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         height: 30,
         marginTop: 13,
         marginLeft: 15,
-        width: 155,
+        width: 140,
     },
     description: {
         position: 'relative',
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
         height: 27,
         marginTop: 13,
         marginLeft: 15,
-        width: 60,
+        width: 50,
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'flex-end'

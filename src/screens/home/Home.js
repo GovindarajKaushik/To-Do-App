@@ -6,15 +6,20 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 import React, { useState } from "react";
 import { COLORS } from "../../constants";
+import { ROUTES } from "../../constants";
+import {useNavigation} from '@react-navigation/native';
 import BlackTop from "../../components/BlackTop";
 import SearchBar from "../../components/SearchBar";
 import Projects from "../../components/Projects";
 import Tasks from "../../components/Tasks";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
-// import { BlackTop, SearchBar, Projects, Tasks } from '../../components';
+
+
 
 const userData = {
   name: "James",
@@ -24,10 +29,23 @@ const userData = {
 
 const Home = (props) => {
   const [term, setTerm] = useState("");
+  const lists = [
+    {title: 'Make a cup of tea', time: '10:00 am', color: '#FFC0CB'},
+    {title: 'Do MAD project', time: '12:00 pm', color: '#FFC4A1'},
+    {title: 'Do Java project', time: '15:00 pm', color: '#94F578'},
+  ]
+  const navigation = useNavigation();
+
+  const onTaskPressed = () => {
+    navigation.navigate(ROUTES.CREATETASKS); // Pass the title of the task to the ToDoList screen});
+  }
+  const addItemsToLists = (item) => {
+    lists.push(item)
+  }
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <BlackTop height={"40%"}>
+      <BlackTop height={"25%"}>
         <View style={styles.header}>
           <Text style={styles.welcome}>
             Hello {userData.name} <Text style={styles.emoji}>👋</Text>
@@ -73,16 +91,22 @@ const Home = (props) => {
 
       <View style={styles.tasksHeaderContainer}>
         <Text style={styles.tasksHeader}>Today's Tasks</Text>
-        <TouchableOpacity>
-          <Text style={styles.seeAll}>See all</Text>
+        <TouchableOpacity onPress={onTaskPressed}>
+          <AntDesign style={styles.createIcon} name="pluscircle" size={39} color="white" />
         </TouchableOpacity>
+        {/* <TouchableOpacity>
+          <Text style={styles.seeAll}>See all</Text>
+        </TouchableOpacity> */}
       </View>
-
-      <View style={styles.tasksContainer}>
-        <Tasks taskColor="#FFC4A1" />
-        <Tasks taskColor="#FFC0CB" />
-        <Tasks taskColor="#94F578" />
-      </View>
+        <FlatList 
+        style={styles.Tasks}
+          data={lists}
+          renderItem={({item: {title, time, color}, index}) => {
+            return (  
+              <Tasks title={title} time={time} color={color} />
+            )
+          }}
+        />
     </ScrollView>
   );
 };
@@ -101,9 +125,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   header: {
-    marginRight: 110,
-    marginTop: 140,
+    marginRight: 90,
+    marginTop: 120,
     height: 100,
+
   },
   numOfProject: {
     color: "white",
@@ -115,20 +140,20 @@ const styles = StyleSheet.create({
   },
   user: {
     position: "relative",
-    bottom: 100,
-    right: 20,
+    bottom: 90,
+    right: 25,
     height: 70,
     width: 70,
     marginLeft: 300,
     borderRadius: 50,
   },
   projectsHeader: {
-    fontWeight: "600",
-    fontSize: 20,
+    fontWeight: "900",
+    fontSize: 22,
     width: 90,
   },
   seeAll: {
-    marginRight: 20,
+    marginRight: 10,
     color: "grey",
   },
   headerContainer: {
@@ -140,22 +165,28 @@ const styles = StyleSheet.create({
   },
   tasksHeaderContainer: {
     position: "absolute",
-    marginLeft: 20,
-    marginTop: 530,
+    marginLeft: 15,
+    marginTop: 510,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: 'black',
+    borderRadius: 30,
+    width: 190,
+    height: 40,
   },
   tasksHeader: {
-    fontWeight: "600",
-    fontSize: 20,
-    marginRight: 160,
+    color: 'white',
+    fontWeight: "900",
+    fontSize: 22,
+    // padding: 10,
+    paddingLeft: 15,
   },
-  tasksContainer: {
-    position: "absolute",
-    flex: 1,
-    marginLeft: 10,
-    marginTop: 560,
+  createIcon: {
+    // padding: 10,
+  },
+  Tasks: {
+    marginTop: -20,
   },
   container: {
     flex: 1,
