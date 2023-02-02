@@ -11,15 +11,13 @@ import {
 import React, { useState } from "react";
 import { COLORS } from "../../constants";
 import { ROUTES } from "../../constants";
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import BlackTop from "../../components/BlackTop";
 import SearchBar from "../../components/SearchBar";
 import Projects from "../../components/Projects";
 import Tasks from "../../components/Tasks";
 import AntDesign from "react-native-vector-icons/AntDesign";
-
-
-
+import { useGlobalContext } from "../../context";
 
 const userData = {
   name: "James",
@@ -29,19 +27,16 @@ const userData = {
 
 const Home = (props) => {
   const [term, setTerm] = useState("");
-  const lists = [
-    {title: 'Make a cup of tea', time: '10:00 am', color: '#FFC0CB'},
-    {title: 'Do MAD project', time: '12:00 pm', color: '#FFC4A1'},
-    {title: 'Do Java project', time: '15:00 pm', color: '#94F578'},
-  ]
+  const { tasks } = useGlobalContext();
   const navigation = useNavigation();
 
   const onTaskPressed = () => {
     navigation.navigate(ROUTES.CREATETASKS); // Pass the title of the task to the ToDoList screen});
-  }
+  };
   const addItemsToLists = (item) => {
-    lists.push(item)
-  }
+    lists.push(item);
+  };
+  console.log(tasks);
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -92,21 +87,24 @@ const Home = (props) => {
       <View style={styles.tasksHeaderContainer}>
         <Text style={styles.tasksHeader}>Today's Tasks</Text>
         <TouchableOpacity onPress={onTaskPressed}>
-          <AntDesign style={styles.createIcon} name="pluscircle" size={39} color="white" />
+          <AntDesign
+            style={styles.createIcon}
+            name="pluscircle"
+            size={39}
+            color="white"
+          />
         </TouchableOpacity>
         {/* <TouchableOpacity>
           <Text style={styles.seeAll}>See all</Text>
         </TouchableOpacity> */}
       </View>
-        <FlatList 
+      <FlatList
         style={styles.Tasks}
-          data={lists}
-          renderItem={({item: {title, time, color}, index}) => {
-            return (  
-              <Tasks title={title} time={time} color={color} />
-            )
-          }}
-        />
+        data={tasks}
+        renderItem={({ item: { title, time, color }, index }) => {
+          return <Tasks title={title} time={time} color={color} />;
+        }}
+      />
     </ScrollView>
   );
 };
@@ -128,7 +126,6 @@ const styles = StyleSheet.create({
     marginRight: 90,
     marginTop: 120,
     height: 100,
-
   },
   numOfProject: {
     color: "white",
@@ -170,13 +167,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: 'black',
+    backgroundColor: "black",
     borderRadius: 30,
     width: 190,
     height: 40,
   },
   tasksHeader: {
-    color: 'white',
+    color: "white",
     fontWeight: "900",
     fontSize: 22,
     // padding: 10,
