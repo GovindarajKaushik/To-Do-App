@@ -61,7 +61,7 @@ const ProgItem = (props) => {
         borderWidth={8}
         children={null}
         containerStyle={null}
-        percent={90}
+        percent={props.percent}
         radius={100}
       />
     </View>
