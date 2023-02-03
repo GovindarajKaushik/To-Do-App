@@ -1,3 +1,8 @@
+  // Name: Govindaraj Kaushik
+  // Class: DIT/FT/1B/02
+  // admin NO. 2227621
+
+
 import {
     StyleSheet,
     Text,
@@ -18,15 +23,21 @@ import {
   import ColorPicker from 'react-native-wheel-color-picker';
 
 
-const CreateProject = () => {
+  const CreateProject = () => {
+    // state hook for project name
     const [projectName, setProjectName] = useState("title" || "");
+    // state hook for project date
     const [date, setDate] = useState("00:00");
+    // state hook for project description
     const [projectDescription, setProjectDescription] = useState("Fill in the description" || "");
+    // state hook for project container color
     const [containerColor, setContainerColor] = useState("#94F578")
+    // hook for projects array and setProjects function from the global context
     const { projects, setProjects } = useGlobalContext();
+    // hook for navigation from React Navigation library
     const navigation = useNavigation();
   
-    
+    // function to add new project to projects array
     const addProject = () => {
       let newProject = {
         containerColor: containerColor,
@@ -34,53 +45,62 @@ const CreateProject = () => {
         projectDescription: projectDescription,
         date: date,
       };
+      // add new project to existing projects array
       setProjects([...projects, newProject]);
+      // navigate to HOME route
       navigation.navigate(ROUTES.HOME);
     };
 
-    // containerColor: "#3BECF7", projectName: "MAD assignment", projectDescription: "Make a site map that has 6 UI screens", date: "16 Jan, 2023 at 5:00 pm"
-  return (
-    <View style={styles.container}>
-      {/* <BlackTop height={'52%'} /> */}
-      <View style={styles.blacktop}>
-        <Text style={styles.title}>Create a new Project</Text>
-        <Text style={styles.name}>Project Name</Text>
-        <TextInput
-          underlineColorAndroid={"transparent"}
-          selectionColor={"transparent"}
-          autoFocus={true}
-          value={projectName}
-          onChangeText={setProjectName}
-          placeholder={"New Project name"}
-          maxLength={30}
-          style={[styles.input, { outline: "none" }]}
-        />
-        <Text style={styles.name}>Time</Text>
-        <TextInput
-          underlineColorAndroid={"transparent"}
-          selectionColor={"transparent"}
-          value={date}
-          onChangeText={setDate}
-          placeholder={"Date"}
-          maxLength={30}
-          style={[styles.input, { outline: "none" }]}
-        />
-        <Text style={[styles.name, {color: '#000'}]}>Task Color</Text>
-        <ColorPicker
-					onColorChangeComplete={setContainerColor}
-					thumbSize={40}
-					sliderSize={40}
-					noSnap={true}
-					row={false}
-          swatches={false}
-          sliderHidden={true}
-				/>
-        <View>
-          <Button onPress={addProject} title="Add" />
+    return (
+      // main container view
+      <View style={styles.container}>
+        <View style={styles.blacktop}>
+          {/* title for create project screen */}
+          <Text style={styles.title}>Create a new Project</Text>
+          {/* label for project name */}
+          <Text style={styles.name}>Project Name</Text>
+          {/* input field for project name */}
+          <TextInput
+            underlineColorAndroid={"transparent"}
+            selectionColor={"transparent"}
+            autoFocus={true}
+            value={projectName}
+            onChangeText={setProjectName}
+            placeholder={"New Project name"}
+            maxLength={30}
+            style={[styles.input, { outline: "none" }]}
+          />
+          {/* label for project date */}
+          <Text style={styles.name}>Time</Text>
+          {/* input field for project date */}
+          <TextInput
+            underlineColorAndroid={"transparent"}
+            selectionColor={"transparent"}
+            value={date}
+            onChangeText={setDate}
+            placeholder={"Date"}
+            maxLength={30}
+            style={[styles.input, { outline: "none" }]}
+          />
+          {/* label for project color */}
+          <Text style={[styles.name, {color: '#000'}]}>Task Color</Text>
+          {/* color picker component to select project color */}
+          <ColorPicker
+            onColorChangeComplete={setContainerColor}
+            thumbSize={40}
+            sliderSize={40}
+            noSnap={true}
+            row={false}
+            swatches={false}
+            sliderHidden={true}
+          />
+          {/* button to add project */}
+          <View>
+            <Button onPress={addProject} title="Add" />
+          </View>
         </View>
       </View>
-    </View>
-  )
+    )
 }
 
 

@@ -1,3 +1,5 @@
+
+
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import BlackTop from '../../components/BlackTop';
@@ -57,12 +59,12 @@ const ProgItem = (props) => {
       <PercentageCircle 
         color={'#82d682'}
         shadowColor={'#ddd'}
-        bgColor={'#fff'}
+        bgColor={'#000'}
         borderWidth={8}
         children={null}
         containerStyle={null}
         percent={props.percent}
-        radius={100}
+        radius={70}
       />
     </View>
   );
@@ -80,6 +82,7 @@ const CompletedItem = (props) => {
   );
 }
 
+// Styles
 const styles = StyleSheet.create({
   progDiv: {
     display: 'flex',

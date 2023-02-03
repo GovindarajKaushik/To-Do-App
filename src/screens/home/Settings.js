@@ -5,26 +5,52 @@ import { Switch } from 'react-native-switch';
 const Settings = () => {
   return (
     <View style={{padding: 30}}>
+      {/* Main header text */}
       <Text style={styles.header}>Settings</Text>
+
+      {/* Section 1: Account */}
       <Section>
-        <SectionHeader img={require('../../assets/icons/account.png')} name={'Account'} />
+        <SectionHeader 
+          // {/* Icon for section */}
+          img={require('../../assets/icons/account.png')} 
+          // {/* Section name */}
+          name={'Account'} 
+        />
+        {/* Option for editing profile */}
         <Option text='Edit Profile' />
+        {/* Option for changing password */}
         <Option text='Change Password' />
+        {/* Option for privacy */}
         <Option text='Privacy' />
       </Section>
 
+      {/* Section 2: Notifications */}
       <Section>
-        <SectionHeader img={require('../../assets/icons/NOTIF.png')} name={'Notifications'} />
+        <SectionHeader 
+          //  Icon for section 
+          img={require('../../assets/icons/NOTIF.png')} 
+          // {/* Section name */}
+          name={'Notifications'} 
+        />
+        {/* Option for notifications toggle */}
         <Option text='Notifications' type='toggle' toggled='true' />
+        {/* Option for app notifications toggle */}
         <Option text='App Notifications' type='toggle' toggled='false' />
       </Section>
 
+      {/* Section 3: More */}
       <Section>
-        <SectionHeader img={require('../../assets/icons/MORE.png')} name={'More'} />
+        <SectionHeader 
+          // {/* Icon for section */}
+          img={require('../../assets/icons/MORE.png')} 
+          // {/* Section name */}
+          name={'More'} 
+        />
+        {/* Option for about us */}
         <Option text='About us' />
+        {/* Option for country */}
         <Option text='Country' />
       </Section>
-      
     </View>
   );
 }
