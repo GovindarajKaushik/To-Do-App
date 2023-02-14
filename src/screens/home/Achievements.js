@@ -6,6 +6,7 @@ import BlackTop from '../../components/BlackTop';
 import DateItem from '../../components/DateItem';
 import {COLORS} from '../../constants';
 import PercentageCircle from '../../components/PercentageCircle';
+import { useGlobalContext } from "../../context";
 
 class Achievements extends React.Component {
   constructor(props) {
@@ -23,11 +24,12 @@ class Achievements extends React.Component {
   }
   
   render() {
+    const { projects } = useGlobalContext();
+
     return (
       <View>
         <BlackTop>
           <View style={styles.progDiv}>
-            <ProgItem category={'Tasks'} percent={30} />
             <ProgItem category={'Projects'} percent={80}/>
           </View>
         </BlackTop>
