@@ -72,7 +72,7 @@ function AuthNavigator() {
        name={ROUTES.CREATEPROJECT}
        component={CreateProject}
        // Showing the header for the CreateProject Screen
-       options={{headerShown: true}}
+       options={{headerShown: false}}
         />
     </Stack.Navigator>
   );

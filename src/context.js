@@ -19,9 +19,27 @@ const AppContextProvider = ({ children }) => {
     {containerColor: "#FF9001", projectName: "JAVA assignment", projectDescription: "Prepare for interview and check the Java code for error", date: "16 Jan, 2023 3:00 pm"},
     ]);
 
+    const [projectsDone, setProjectsDone] = React.useState([
+    ]);
+
+    const [tasksDone, setTasksDone] = React.useState([
+    ]);
+
+ // Function to update a project in the projects array
+  const updateProject = (index, updatedProject) => {
+    setProjects(prevProjects => {
+      // Make a copy of the projects array
+      const newProjects = [...prevProjects];
+      // Update the project at the specified index with the updated project
+      newProjects[index] = updatedProject;
+      // Set the state of projects to the new array
+      return newProjects;
+    });
+  };
+
   // Return the provider with the context value
   return (
-    <AppContext.Provider value={{ tasks, setTasks, projects, setProjects }}>
+    <AppContext.Provider value={{ tasks, setTasks, projects, setProjects, updateProject, projectsDone, setProjectsDone }}>
       {children}
     </AppContext.Provider>
   );

@@ -27,7 +27,7 @@ import {
     // state hook for project name
     const [projectName, setProjectName] = useState("title" || "");
     // state hook for project date
-    const [date, setDate] = useState("00:00");
+    const [date, setDate] = useState("16 Jan, 2023 at 5:00 pm");
     // state hook for project description
     const [projectDescription, setProjectDescription] = useState("Fill in the description" || "");
     // state hook for project container color
@@ -71,7 +71,7 @@ import {
             style={[styles.input, { outline: "none" }]}
           />
           {/* label for project date */}
-          <Text style={styles.name}>Time</Text>
+          <Text style={styles.name}>Date</Text>
           {/* input field for project date */}
           <TextInput
             underlineColorAndroid={"transparent"}
@@ -83,11 +83,12 @@ import {
             style={[styles.input, { outline: "none" }]}
           />
           {/* label for project color */}
-          <Text style={[styles.name, {color: '#000'}]}>Task Color</Text>
+          <Text style={[styles.colorWheel, {color: '#000'}]}>Task Color</Text>
           {/* color picker component to select project color */}
           <ColorPicker
+          style={{marginTop: -20, marginLeft: 30}}
             onColorChangeComplete={setContainerColor}
-            thumbSize={40}
+            thumbSize={90}
             sliderSize={40}
             noSnap={true}
             row={false}
@@ -95,9 +96,9 @@ import {
             sliderHidden={true}
           />
           {/* button to add project */}
-          <View>
-            <Button onPress={addProject} title="Add" />
-          </View>
+          <TouchableOpacity onPress={addProject} style={styles.createBtn}>
+          <Text style={styles.createText}>Create</Text>
+        </TouchableOpacity>
         </View>
       </View>
     )
@@ -143,6 +144,28 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "flex-start",
       },
+      colorWheel: {
+        color: "white",
+        fontSize: 22,
+        marginLeft: 30,
+        marginTop: 90,
+        fontWeight: "200",
+      },
+      createBtn: {
+        marginTop: 280,
+        marginLeft: 90,
+        backgroundColor: 'black',
+        width: 170,
+        height: 50,
+        borderRadius: 30,
+      },
+      createText: {
+        color: 'white',
+        marginLeft: 55,
+        marginTop: 10,
+        fontWeight: 'bold',
+        fontSize: 22,
+      }
 })
 
 export default CreateProject;

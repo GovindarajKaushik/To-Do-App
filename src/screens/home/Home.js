@@ -34,9 +34,10 @@ const Home = (props) => {
   // State to hold the input value of the search bar
   const [term, setTerm] = useState("");
   // Destructuring tasks and projects from the global context
-  const { tasks, projects } = useGlobalContext();
+  const { tasks, projects, projectsDone, setProjectsDone } = useGlobalContext();
   // Navigation object from react-navigation
   const navigation = useNavigation();
+
 
   // Function to navigate to the Create Tasks screen
   const onTaskPressed = () => {
@@ -44,9 +45,6 @@ const Home = (props) => {
   };
 
   // Function to navigate to the Project List screen
-  const onProjectPressed = () => {
-    navigation.navigate(ROUTES.PROJECTLIST); // Navigate to the Project List screen
-  };
 
   // Function to navigate to the Create Project screen
   const createProjectPressed = () => {
@@ -68,7 +66,7 @@ const Home = (props) => {
           </Text>
           {/* The number of projects text */}
           <Text style={styles.numOfProject}>
-            You have a total of 3 projects to complete today
+            You have a total of {projects.length} projects to complete today
           </Text>
         </View>
         {/* The user image */}

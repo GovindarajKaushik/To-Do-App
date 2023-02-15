@@ -23,7 +23,12 @@
     const navigation = useNavigation();
 
     // Hook for getting the global tasks context
-    const { tasks, setTasks } = useGlobalContext();
+    const { tasks, setTasks, tasksDone, setTasksDone } = useGlobalContext();
+
+    const onTaskPressed = () => {
+      deleteTask(props.index);
+      }
+    
 
     // Function to delete task
     const deleteTask = (deleteIndex) => {
@@ -32,10 +37,10 @@
     }
 
     // Function to handle task press
-    const onTaskPressed = () => {
-      // Navigate to the ToDoList screen and pass the task title and color as props
-      navigation.navigate(ROUTES.TODOLIST, {title: props.title, color: props.color}); 
-    }
+    // const onTaskPressed = () => {
+    //   // Navigate to the ToDoList screen and pass the task title and color as props
+    //   navigation.navigate(ROUTES.TODOLIST, {title: props.title, color: props.color}); 
+    // }
 
     // Function to handle trash press
     const onTrashPressed  = () => {

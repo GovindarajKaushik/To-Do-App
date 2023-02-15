@@ -24,7 +24,7 @@ class Achievements extends React.Component {
   }
   
   render() {
-    const { projects } = useGlobalContext();
+    // const { projects } = useGlobalContext();
 
     return (
       <View>

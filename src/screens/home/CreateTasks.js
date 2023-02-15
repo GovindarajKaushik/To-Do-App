@@ -82,11 +82,12 @@ const CreateTasks = () => {
           style={[styles.input, { outline: "none" }]}
         />
         {/* Label for the task color picker */}
-        <Text style={[styles.name, {color: '#000'}]}>Task Color</Text>
+        <Text style={[styles.colorWheel, {color: '#000'}]}>Task Color</Text>
         {/* Color picker for selecting the task color */}
         <ColorPicker
+        style={{marginTop: -30, marginLeft: 30}}
 					onColorChangeComplete={setColor}
-					thumbSize={40}
+					thumbSize={90}
 					sliderSize={40}
 					noSnap={true}
 					row={false}
@@ -94,9 +95,9 @@ const CreateTasks = () => {
           sliderHidden={true}
 				/>
         {/* Button to add the task */}
-        <View>
-          <Button onPress={addTask} title="Add" />
-        </View>
+        <TouchableOpacity onPress={addTask} style={styles.createBtn}>
+          <Text style={styles.createText}>Create</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -122,6 +123,13 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontWeight: "200",
   },
+  colorWheel: {
+    color: "white",
+    fontSize: 22,
+    marginLeft: 30,
+    marginTop: 90,
+    fontWeight: "200",
+  },
   input: {
     color: "white",
     fontWeight: "600",
@@ -142,5 +150,20 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
+  createBtn: {
+    marginTop: 280,
+    marginLeft: 90,
+    backgroundColor: 'black',
+    width: 170,
+    height: 50,
+    borderRadius: 30,
+  },
+  createText: {
+    color: 'white',
+    marginLeft: 55,
+    marginTop: 10,
+    fontWeight: 'bold',
+    fontSize: 22,
+  }
 });
 export default CreateTasks;

@@ -16,10 +16,24 @@ const Projects = (props) => {
   // Hook to access the navigation object
   const navigation = useNavigation();
 
+  const { projectsDone, setProjectsDone } = useGlobalContext();
   // Event handler to navigate to the project list screen
-  const onProjectPressed = () => {
-    navigation.navigate(ROUTES.PROJECTLIST);
-  }
+
+  const ProjectPressed = () => {
+   
+      let newProjects = {
+        projectName: props.projectName,
+        projectDescription: props.projectDescription,
+        date: props.date,
+
+      };
+      // add new project to existing projects array
+      setProjectsDone([...projectsDone, newProjects]);
+      deleteProject(props.index)
+    };
+  
+
+  
 
   // Hook to access the global context of projects
   const { projects, setProjects } = useGlobalContext();
@@ -52,7 +66,7 @@ const Projects = (props) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onProjectPressed}>
+      <TouchableOpacity onPress={ProjectPressed}>
         {/* Project Name and Description */}
         <View style={[styles.NameContainer, {backgroundColor: props.containerColor}]}> 
           <Text style={styles.Name}>{props.projectName}</Text>
@@ -78,7 +92,8 @@ const Projects = (props) => {
       </TouchableOpacity>
     </View>
   )
-}
+
+  }
 
 export default Projects
 

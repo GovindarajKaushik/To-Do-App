@@ -61,7 +61,7 @@ function BottomTabNavigator() {
         )
       }}
     />
-    <Tab.Screen
+    {/* <Tab.Screen
       // Route name for the Calender screen
       name={ROUTES.CALENDER}
       // Component for the Calender screen
@@ -78,7 +78,7 @@ function BottomTabNavigator() {
             />
         )
       }}
-    />
+    /> */}
    <Tab.Screen
    // Route name for the Achievements screen
       name={ROUTES.ACHIEVEMENTS}
