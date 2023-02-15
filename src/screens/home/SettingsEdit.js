@@ -4,11 +4,11 @@ import { ROUTES } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 import { TextInput } from 'react-native-gesture-handler';
 
-const SettingsEdit = (props) => {
+const SettingsEdit = () => {
   return (
-    <View style={{padding: 30}}>
-      <Text style={styles.header}>{props.header}</Text>
-      <TextInput placeholder={props.currentData} />
+    <View style={{padding: 20}}>
+      <Text style={styles.header}>Change Password</Text>
+      <TextInput placeholder='New Password' />
       
     </View>
   );

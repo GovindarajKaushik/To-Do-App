@@ -27,12 +27,12 @@ class Achievements extends React.Component {
   
   render() {
     //const { projects } = useGlobalContext();
-
+    let projCount = Math.floor(Math.random() * 3)
     return (
       <View>
         <BlackTop>
           <View style={styles.progDiv}>
-            <ProgItem category={'Projects'} percent={80}/>
+            <ProgItem category={'Projects'} percent={Math.floor(projCount/3*100)}/>
           </View>
         </BlackTop>
   
@@ -49,8 +49,8 @@ class Achievements extends React.Component {
           </ScrollView>
         </View>
       
-        <CompletedItem category={'Tasks'} completed={5} total={7} img={require('../../assets/icons/TASK.png')} />
-        <CompletedItem category={'Projects'} completed={1} total={3} img={require('../../assets/icons/PROJECT.png')} />
+        <CompletedItem category={'Tasks'} completed={Math.floor(Math.random() * 7)} total={7} img={require('../../assets/icons/TASK.png')} />
+        <CompletedItem category={'Projects'} completed={projCount} total={3} img={require('../../assets/icons/PROJECT.png')} />
       </View>
     );
   }

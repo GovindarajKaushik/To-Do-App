@@ -2,74 +2,24 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import { ROUTES } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
+import { TextInput } from 'react-native-gesture-handler';
 
 const SettingsView = () => {
   return (
     <View style={{padding: 30}}>
-      <Text style={styles.header}>Settings</Text>
-      <Section>
-        <SectionHeader img={require('../../assets/icons/account.png')} name={'Account'} />
-        <Option text='Edit Profile' />
-        <Option text='Change Password' />
-        <Option text='Privacy' />
-      </Section>
+      <Text style={styles.header}>About us</Text>
+      <Text>
+      Trenbolone has both anabolic and androgenic effects. Once metabolized, trenbolone esters have the effect of increasing ammonium ion uptake by muscles, leading to an increase in the rate of protein synthesis. It may also have the secondary effects of stimulating appetite and decreasing the rate of catabolism, as all anabolic steroids are believed to; however, catabolism likely increases significantly once the steroid is no longer taken. At least one study in rats has shown trenbolone to cause gene expression of the androgen receptor (AR) at least as potent as dihydrotestosterone (DHT). This evidence tends to indicate trenbolone can cause an increase in male secondary sex characteristics without the need to convert to a more potent androgen in the body.
 
-      <Section>
-        <SectionHeader img={require('../../assets/icons/NOTIF.png')} name={'Notifications'} />
-        <Option text='Notifications' type='toggle' toggled='true' />
-        <Option text='App Notifications' type='toggle' toggled='false' />
-      </Section>
+Studies on metabolism are mixed, with some studies showing that it is metabolized by aromatase or 5α-reductase into estrogenic compounds, or into 5α-reduced androgenic compounds, respectively.
 
-      <Section>
-        <SectionHeader img={require('../../assets/icons/MORE.png')} name={'More'} />
-        <Option text='About us' />
-        <Option text='Country' />
-      </Section>
+Trenbolone has potency five times as high as that of testosterone. Trenbolone also binds with high affinity to the progesterone receptor. Trenbolone binds to the glucocorticoid receptor, as well.
+      </Text>
       
     </View>
   );
 }
 
-const SectionHeader = (props) => {
-  return (
-    <View style={styles.sectionHeader}>
-      <Image source={props.img} style={{height: 30, width: 30, marginRight: 12}}/>
-      <Text style={{fontWeight: 'bold'}}>{props.name}</Text>
-    </View> 
-  );
-}
-
-const Section = (props) => {
-  return (
-    <View style={styles.section}>{props.children}</View>
-  );
-}
-
-const Option = (props) => {
-  if (props.type == "toggle") {
-    return (
-      <View style={styles.option}>
-        <Text>{props.text}</Text>
-        <View style={{marginLeft: 'auto', marginRight: 2}}>
-          <Switch
-            value={true}
-            activeText={''}
-            inActiveText={''}
-            backgroundActive={'#000'}
-            backgroundInactive={'#555'}
-         />
-        </View>
-      </View>
-    )
-  } else {
-    return (
-      <View style={styles.option}>
-        <Text>{props.text}</Text>
-        <Image source={require('../../assets/icons/ARROW.png')} style={{marginLeft: 'auto', marginRight: 2}} />
-      </View>
-    )
-  }
-}
 
 const styles = StyleSheet.create({
   header: {
