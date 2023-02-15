@@ -6,9 +6,11 @@ import BlackTop from '../../components/BlackTop';
 import DateItem from '../../components/DateItem';
 import {COLORS} from '../../constants';
 import PercentageCircle from '../../components/PercentageCircle';
-import { useGlobalContext } from "../../context";
+// import { AppContext } from "../../context";
 
 class Achievements extends React.Component {
+  //static contextType = AppContext;
+
   constructor(props) {
     super(props);
     this.setActiveDate = this.setActiveDate.bind(this);
@@ -24,7 +26,7 @@ class Achievements extends React.Component {
   }
   
   render() {
-    const { projects } = useGlobalContext();
+    //const { projects } = useGlobalContext();
 
     return (
       <View>
