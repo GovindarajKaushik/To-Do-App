@@ -17,6 +17,8 @@ export default {
   SETTINGS: 'Settings',
   ACCOUNT_SETTINGS: 'Account Settings',
   SETTINGS_NAVIGATOR: 'Settings Navigator',
+  SETTINGS_EDIT: 'SettingsEdit',
+  SETTINGS_VIEW: 'SettingsView',
 
   SETTINGS_DETAIL: 'Settings Detail',
   PROFILE: 'My Profile',
