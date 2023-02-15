@@ -5,7 +5,7 @@
 
 
 import React, { Component } from 'react'
-import { StyleSheet, View, I18nManager } from 'react-native'
+import { Text, StyleSheet, View, I18nManager } from 'react-native'
 
 // Determine the direction based on if the device is in RTL mode
 let direction = I18nManager.isRTL? 'right' : 'left';
@@ -135,6 +135,7 @@ export default class PercentageCircle extends Component {
                 ]} 
             >
                 {this.props.children}
+                <Text style={{color: '#fff', fontSize: 20}}>{this.props.percent}%</Text>
             </View>
         )
     }

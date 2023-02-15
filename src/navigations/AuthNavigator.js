@@ -8,6 +8,8 @@ import {CreateProject, CreateProjects, Login, ProjectList, Register, ToDoList} f
 import {ROUTES} from '../constants';
 import BottomTabNavigator from './BottomTabNavigator';
 import CreateTasks from '../screens/home/CreateTasks';
+import SettingsView from '../screens/home/SettingsView';
+import SettingsEdit from '../screens/home/SettingsEdit';
 
 // Importing the createStackNavigator method from @react-navigation/stack library
 const Stack = createStackNavigator();
@@ -73,6 +75,20 @@ function AuthNavigator() {
        component={CreateProject}
        // Showing the header for the CreateProject Screen
        options={{headerShown: false}}
+        />
+
+      <Stack.Screen 
+       name={ROUTES.SETTINGS_VIEW}
+       component={SettingsView}
+       // Showing the header for the CreateProject Screen
+       options={{headerShown: true}}
+        />
+
+      <Stack.Screen 
+       name={ROUTES.SETTINGS_EDIT}
+       component={SettingsEdit}
+       // Showing the header for the CreateProject Screen
+       options={{headerShown: true}}
         />
     </Stack.Navigator>
   );

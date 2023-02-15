@@ -1,6 +1,8 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
 import { Switch } from 'react-native-switch';
+import { ROUTES } from "../../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const Settings = () => {
   return (
@@ -21,7 +23,7 @@ const Settings = () => {
         {/* Option for changing password */}
         <Option text='Change Password' />
         {/* Option for privacy */}
-        <Option text='Privacy' />
+        <Option text='Privacy' type="view" />
       </Section>
 
       {/* Section 2: Notifications */}
@@ -47,7 +49,7 @@ const Settings = () => {
           name={'More'} 
         />
         {/* Option for about us */}
-        <Option text='About us' />
+        <Option text='About us' type="view" />
         {/* Option for country */}
         <Option text='Country' />
       </Section>
@@ -71,6 +73,7 @@ const Section = (props) => {
 }
 
 const Option = (props) => {
+  const navigation = useNavigation();
   if (props.type == "toggle") {
     return (
       <View style={styles.option}>
@@ -90,7 +93,13 @@ const Option = (props) => {
     return (
       <View style={styles.option}>
         <Text>{props.text}</Text>
-        <Image source={require('../../assets/icons/ARROW.png')} style={{marginLeft: 'auto', marginRight: 2}} />
+        <Pressable style={{marginLeft: 'auto', marginRight: 2}} onPress={
+          () => props.type == "view" 
+            ? navigation.navigate(ROUTES.SETTINGS_VIEW) 
+            : navigation.navigate(ROUTES.SETTINGS_EDIT)
+        }>
+          <Image source={require('../../assets/icons/ARROW.png')} />
+        </Pressable>
       </View>
     )
   }

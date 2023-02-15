@@ -6,9 +6,11 @@ import BlackTop from '../../components/BlackTop';
 import DateItem from '../../components/DateItem';
 import {COLORS} from '../../constants';
 import PercentageCircle from '../../components/PercentageCircle';
-import { useGlobalContext } from "../../context";
+// import { AppContext } from "../../context";
 
 class Achievements extends React.Component {
+  //static contextType = AppContext;
+
   constructor(props) {
     super(props);
     this.setActiveDate = this.setActiveDate.bind(this);
@@ -24,13 +26,18 @@ class Achievements extends React.Component {
   }
   
   render() {
+<<<<<<< HEAD
     // const { projects } = useGlobalContext();
 
+=======
+    //const { projects } = useGlobalContext();
+    let projCount = Math.floor(Math.random() * 3)
+>>>>>>> f729e29870b8748d43a0d73d25035ee65e646e05
     return (
       <View>
         <BlackTop>
           <View style={styles.progDiv}>
-            <ProgItem category={'Projects'} percent={80}/>
+            <ProgItem category={'Projects'} percent={Math.floor(projCount/3*100)}/>
           </View>
         </BlackTop>
   
@@ -47,8 +54,8 @@ class Achievements extends React.Component {
           </ScrollView>
         </View>
       
-        <CompletedItem category={'Tasks'} completed={5} total={7} img={require('../../assets/icons/TASK.png')} />
-        <CompletedItem category={'Projects'} completed={1} total={3} img={require('../../assets/icons/PROJECT.png')} />
+        <CompletedItem category={'Tasks'} completed={Math.floor(Math.random() * 7)} total={7} img={require('../../assets/icons/TASK.png')} />
+        <CompletedItem category={'Projects'} completed={projCount} total={3} img={require('../../assets/icons/PROJECT.png')} />
       </View>
     );
   }
